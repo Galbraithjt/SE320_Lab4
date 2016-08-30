@@ -1,0 +1,59 @@
+﻿<Window x:Class="SE310_Lab3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="306.117" Width="796.195" Closing="Window_Closing" Initialized="Window_Initialized">
+    <Grid Margin="0,0,0,0">
+        <Canvas HorizontalAlignment="Left" Height="276" VerticalAlignment="Top" Width="788">
+            <Expander Header="Room Size" Canvas.Left="10" Canvas.Top="10" IsExpanded="True" Height="218" Width="185">
+                <StackPanel Height="170" Margin="0,0,-2,0">
+                    <Label x:Name="LabelLength" Content="Length" Margin="0,0,119,0"/>
+                    <TextBox x:Name="TextBoxLength" Height="23" TextWrapping="Wrap" Margin="51,0,0,0" Text="0" TextChanged="TextBoxLength_TextChanged"/>
+                    <Label x:Name="LabelWidth" Content="Width" Margin="0,0,119,0"/>
+                    <TextBox x:Name="TextBoxWidth" Height="23" TextWrapping="Wrap" Margin="51,0,0,0" TextChanged="TextBoxWidth_TextChanged" Text="0"/>
+                    <CheckBox x:Name="CheckBoxSquare" Content="Width and Length Are Equal" Height="19" Checked="CheckBox_Checked" Unchecked="CheckBoxSquare_Unchecked"/>
+                </StackPanel>
+            </Expander>
+            <Expander Header="Difficulty" Canvas.Left="195" Canvas.Top="10" IsExpanded="True" Height="218" Width="185">
+                <ComboBox Text="Select Difficulty" Height="37" Margin="24,0,24,140" RenderTransformOrigin="0.5,0.5">
+                    <ComboBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                        </TransformGroup>
+                    </ComboBox.RenderTransform>
+                    <ComboBoxItem x:Name="Easy" Height="37" Content="Easy"/>
+                    <ComboBoxItem x:Name="Normal" Height="37" Content="Normal"/>
+                    <ComboBoxItem x:Name="Hard" Height="37" Content="Hard"/>
+                </ComboBox>
+            </Expander>
+            <Expander Header="Player Color" Canvas.Left="380" Canvas.Top="10" IsExpanded="True" Height="218" Width="185">
+                <StackPanel HorizontalAlignment="Left" Height="196" Width="183">
+                    <Rectangle x:Name="RectanglePlayerColorView" Fill="#FFF4F4F5" Stroke="Black" RadiusY="0.5" RadiusX="0.5" Height="36" RenderTransformOrigin="0.492,0.526" HorizontalAlignment="Left" Width="134" Margin="25,0,0,0">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform Y="-0.988"/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <ComboBox HorizontalAlignment="Left" Width="135" Height="37" Margin="24,0,0,140">
+                        <ComboBoxItem x:Name="Red" Height="18" Content="Red" Selected="Red_Selected"/>
+                        <ComboBoxItem x:Name="Blue" Height="18" Content="Blue" Selected="Blue_Selected"/>
+                        <ComboBoxItem x:Name="Green" Height="18" Content="Green" Selected="Green_Selected"/>
+                    </ComboBox>
+                </StackPanel>
+            </Expander>
+        </Canvas>
+        <InkCanvas x:Name="InkCanvasFace" Margin="597,0,0,146" UseCustomCursor="True" Height="120" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="51">
+            <Ellipse x:Name="EllipsePlayer" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="120" Margin="0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
+        </InkCanvas>
+        <Expander Header="Oval Shape" HorizontalAlignment="Left" Margin="597,149,0,0" VerticalAlignment="Top" IsExpanded="True" Height="127" Width="102">
+            <StackPanel Height="100" Width="100">
+                <Slider x:Name="SliderOvalShape" ValueChanged="SliderOvalShape_ValueChanged"/>
+                <Button HorizontalContentAlignment="Stretch" Height="41" Content="Clear Face" Click="Button_Click"/>
+            </StackPanel>
+        </Expander>
+
+    </Grid>
+</Window>
